@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - '4.0.x-egis'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to GitLab
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.REGISTRY_NAME }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: go3e-eau/open-hypervision/oh-geonode:github
