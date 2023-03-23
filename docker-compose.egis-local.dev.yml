@@ -1,0 +1,33 @@
+version: '3.4'
+
+# Common Django template for GeoNode and Celery services below
+x-common-django:
+  &default-common-django
+  env_file:
+    - .env_dev_egis
+
+services:
+  # Django backend
+  django:
+    ports:
+     - "${HTTP_PORT}:${HTTP_PORT}"
+    command: "sleep infinity"
+    volumes:
+      - '.:/usr/src/geonode'
+
+  # Celery backend
+  celery:
+    volumes:
+      - '.:/usr/src/geonode'
+
+  # Geoserver backend
+  geoserver:
+    env_file:
+      - .env_dev_egis
+
+  # PostGIS database.
+  db:
+    env_file:
+      - .env_dev_egis
+    ports:
+     - "35432:5432"
