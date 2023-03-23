@@ -1,12 +1,14 @@
 Note on this fork
 =================
 
-This fork of geonode contains the dev project for the django-geonode-gdc contrib app. This app is an handy data browser for geonode.
-The browser source code is availble here:
+### Purpose of the fork
 
-![django-geonode-gdc](https://github.com/Inogeo/spade/tree/4.x-gdc/geonode/gdc)
+This fork of geonode contains the example project for the django-geonode-gdc Django app integration. This app is an handy data browser for geonode.
+The ![`django-geonode-gdc`](https://github.com/phardy-egis/django-geonode-gdc-backend) Django app is integrated as a GIT submodule in this folder: `./geonode/gdc`
 
-Some instructions to setup easily geonode and drafts guidelines to contribute to this project are given [HERE](README_EGIS.md)
+### How to use ?
+
+Some instructions to setup easily geonode and drafts guidelines to contribute to this project are given in [README_EGIS.md](https://github.com/phardy-egis/django-geonode-dev/blob/4.0.x-egis/README_EGIS.md)
 
 ___
 
