@@ -1,0 +1,18 @@
+version: '3.4'
+
+# Common Django template for GeoNode and Celery services below
+x-common-django:
+  env_file:
+    - .env_dev_egis
+
+services:
+
+  # Geoserver backend
+  geoserver:
+    env_file:
+      - .env_dev_egis
+
+  # PostGIS database.
+  db:
+    env_file:
+      - .env_dev_egis

@@ -142,10 +142,6 @@ class TopicCategory(models.Model):
     is_choice = models.BooleanField(default=True)
     fa_class = models.CharField(max_length=64, default="fa-times")
     
-    # Required for GDC
-    position_index = models.IntegerField(verbose_name='Position index',null=True, blank=True)
-    icon_img = models.FileField(verbose_name='Image icon',null=True, blank=True)
-
     def __str__(self):
         return self.gn_description
 
