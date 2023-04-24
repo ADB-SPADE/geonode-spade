@@ -1,0 +1,6 @@
+[submodule "geonode/gdc"]
+	path = geonode/gdc
+	url = https://github.com/phardy-egis/django-geonode-gdc-backend.git
+[submodule "geonode/safeguard-screening-map"]
+	path = geonode/safeguard-screening-map
+	url = https://github.com/ADB-SPADE/safeguard-screening-map.git
