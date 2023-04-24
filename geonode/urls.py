@@ -207,3 +207,9 @@ urlpatterns += [
 urlpatterns += [  
     path('gdc/', include('geonode.gdc.urls')),
 ]
+
+# safeguard_screening_map API endpoints
+if "geonode.safeguard-screening-map.safeguard_screening_map" in settings.INSTALLED_APPS:
+    urlpatterns += [  # '',
+        url(r'^api/v2/', include('geonode.safeguard-screening-map.safeguard_screening_map.api.urls')),
+    ]
