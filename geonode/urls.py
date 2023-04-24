@@ -202,3 +202,14 @@ if settings.MONITORING_ENABLED:
 urlpatterns += [
     url(r"^metadata_update_redirect$", views.metadata_update_redirect, name="metadata_update_redirect"),
 ]
+
+# django-geonode-gdc API endpoints
+urlpatterns += [  
+    path('gdc/', include('geonode.gdc.urls')),
+]
+
+# safeguard_screening_map API endpoints
+if "geonode.safeguard-screening-map.safeguard_screening_map" in settings.INSTALLED_APPS:
+    urlpatterns += [  # '',
+        url(r'^api/v2/', include('geonode.safeguard-screening-map.safeguard_screening_map.api.urls')),
+    ]

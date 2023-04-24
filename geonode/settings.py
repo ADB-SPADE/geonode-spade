@@ -2260,3 +2260,12 @@ SUPPORTED_DATASET_FILE_TYPES = [
         "needsFiles": ["shp", "prj", "dbf", "shx", "csv", "tiff", "zip", "xml"],
     },
 ]
+
+# django-geonode-gdc app import
+INSTALLED_APPS += ('geonode.gdc',)
+
+# 'safeguard_screening_map' app import
+INSTALLED_APPS += ('geonode.safeguard-screening-map.safeguard_screening_map',)
+
+
+
