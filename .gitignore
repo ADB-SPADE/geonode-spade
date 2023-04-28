@@ -98,3 +98,4 @@ scripts/spcgeonode/_volume_*
 /.env
 /backups
 /restores
+*.pyc.*
