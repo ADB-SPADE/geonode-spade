@@ -158,8 +158,8 @@ location / {
   # uwsgi_params
   include /etc/nginx/uwsgi_params;
 
-  # proxy_pass http://$upstream;
-  uwsgi_pass $upstream;
+  proxy_pass http://$upstream;
+  # uwsgi_pass $upstream;
 
   # when a client closes the connection then keep the channel to uwsgi open. Otherwise uwsgi throws an IOError
   uwsgi_ignore_client_abort on;
