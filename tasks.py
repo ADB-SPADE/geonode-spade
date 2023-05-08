@@ -545,6 +545,10 @@ def _gs_service_availability(url):
         logger.error(f"GeoServer connection error is {e}")
         return False
     except requests.exceptions.HTTPError as er:
+        # UGLY FIX: assume GeoServer REST API is available
+        # if it manages to send a 401 response
+        if "401" in repr(er):
+            return True
         logger.error(f"GeoServer HTTP error is {er}")
         return False
     else:
