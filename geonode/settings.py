@@ -792,6 +792,7 @@ TEMPLATES = [
 ]
 
 MIDDLEWARE = (
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -2262,10 +2263,22 @@ SUPPORTED_DATASET_FILE_TYPES = [
 ]
 
 # django-geonode-gdc app import
-INSTALLED_APPS += ('geonode.gdc',)
+INSTALLED_APPS += ("geonode.gdc",)
 
 # 'safeguard_screening_map' app import
-INSTALLED_APPS += ('geonode.safeguard-screening-map.safeguard_screening_map',)
+# INSTALLED_APPS += ("geonode.safeguard-screening-map.safeguard_screening_map",)
 
+# CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+# CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
+# INSTALLED_APPS += ("debug_toolbar",)
+if DEBUG:
+    import socket  # only if you haven't already imported this
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
 
+# DEBUG_TOOLBAR_CONFIG = {
+#     "SHOW_TOOLBAR_CALLBACK": lambda request: True,
+# }

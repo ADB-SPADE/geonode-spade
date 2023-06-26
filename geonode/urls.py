@@ -213,3 +213,7 @@ if "geonode.safeguard-screening-map.safeguard_screening_map" in settings.INSTALL
     urlpatterns += [  # '',
         url(r'^api/v2/', include('geonode.safeguard-screening-map.safeguard_screening_map.api.urls')),
     ]
+
+# safeguard_screening_map API endpoints
+if "debug_toolbar" in settings.INSTALLED_APPS:
+    urlpatterns += path('__debug__/', include('debug_toolbar.urls')),
